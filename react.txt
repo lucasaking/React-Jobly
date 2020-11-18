@@ -1,0 +1,74 @@
+HIERARCHY
+
+
+
+Components
+
+APP
+  State: Nothing//Needs state
+  Props: user
+  
+  NAVBAR
+    State: Logged-in
+    Prop: user
+
+  
+  ROUTES
+    Props: user
+
+    COMPANIES
+      State:  companyList
+
+      SEARCH BAR
+        Props: callParentfn()
+        State: compName(Companies/Jobs), minEmployees, maxEmployees, name
+
+      COMPANY
+        Props: user, name, description
+
+        JOBS
+          Props: title, salary, equity, companyHandle
+          State: compName(Companies/Jobs), minSalary, hasEquity, title
+
+          SEARCH BAR
+            Props: callParentfn()
+
+          JOB
+            Props: title, salary, equity, companyName, hasApplied
+
+
+    USERS
+      Props: userList
+      State: formData(username, firstName, lastName, email, password, isAdmin)
+
+      USER  
+        Props: username
+        
+
+    JOBS
+          Props: jobList
+          State: compName(Companies/Jobs), minSalary, hasEquity, title
+
+          SEARCH BAR
+            Props: callParentfn()
+            
+          JOB
+            Props: title, salary, equity, companyName, hasApplied
+    PROFILE
+      Props: username, firstName, lastName, email 
+      State: formData(username, firstName, lastName, email, confirmPassword)
+
+    LOGIN
+      State: formData(username, password)
+
+    SIGN-UP
+      State:  formData(username, firstName, lastName, email, password)
+
+    HOME
+      Props: username
+
+
+  
+
+
+

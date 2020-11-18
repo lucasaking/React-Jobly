@@ -1,0 +1,39 @@
+.jobCard {
+  border-style: solid;
+  border-width: 2px;
+  border-color: black;
+  font-family: monospace;
+  color: black;
+  margin: 5%;
+  padding: 5%;
+}
+
+.companyCard {
+  border-style: solid;
+  border-width: 2px;
+  border-color: black;
+  font-family: monospace;
+  color: black;
+  margin: 5%;
+  padding: 5%;
+  text-decoration: none;
+}
+
+.companyCard:link {
+  text-decoration: none;
+}
+
+.companyList {
+  border-style: solid;
+  border-width: 2px;
+  border-color: black;
+  font-size: larger;
+  font-family: monospace;
+  color: black;
+  margin: 5%;
+  padding: 5%;
+}
+
+.centering {
+  text-align: center;
+}
