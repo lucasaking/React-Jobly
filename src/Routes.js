@@ -11,6 +11,7 @@ import JobList from './JobList';
 import LoginForm from './LoginForm';
 import SignupForm from './SignupForm';
 import ProfileForm from './ProfileForm';
+import Logout from "./Logout";
 // import FilterCompanyDetails from './FilterCompanyDetails';
 
 function Routes() {
@@ -29,13 +30,16 @@ function Routes() {
         <JobList />
       </Route>      
       <Route exact path="/login">
-        <LoginForm />
+        <LoginForm/>
       </Route>
       <Route exact path="/signup">
-        <SignupForm />
+        <SignupForm/>
       </Route>
       <Route exact path="/profile">
         <ProfileForm />
+      </Route>
+      <Route exact path="/logout">
+        <Logout />
       </Route>
       <Redirect to="/" />
     </Switch>

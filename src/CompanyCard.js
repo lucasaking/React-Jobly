@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 function CompanyCard({name, description, logoUrl, handle}) {
 
   return (
-    <div className="companyCard">
+    <div className="commonCard">
       <Link to={`/companies/${handle.toLowerCase()}`} style={{ textDecoration: 'none' }}>
         <p>Name: {name}</p>
         <p>Description: {description}</p>

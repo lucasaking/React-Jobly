@@ -2,6 +2,16 @@ import React, { useState, useEffect } from "react";
 import { useParams } from 'react-router-dom';
 import "./CompanyList.css";
 import JoblyApi from "./api.js";
+import JobCard from "./JobCard";
+
+/**
+ * State: companyDetail, isLoading
+ * 
+ * Props: No props
+ * 
+ * useParam: name(company handle)
+ * 
+ */
 
 function CompanyDetail() {
 
@@ -25,11 +35,7 @@ function CompanyDetail() {
 
   function renderJobList() {
     return companyDetail.jobs.map(j => (
-      <div className="jobCard" key={j.id}>
-        <div>Job Title: {j.title}</div>
-        <div>Salary: {j.salary}</div>
-        <div>Equity: {j.equity}</div>
-      </div>
+      <JobCard job = {j}/>
     ));
   }
 
@@ -43,6 +49,7 @@ function CompanyDetail() {
           </h1>
         </div>
       </div>
+
       <div className="row">
         {renderJobList()}
       </div>

@@ -30,3 +30,9 @@ nav a:hover {
   color: white;
   float: left;
 }
+
+span {
+  padding: 5px;
+  color: red;
+  font-family: monospace;
+}

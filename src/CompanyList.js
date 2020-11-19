@@ -1,30 +1,46 @@
 import React, { useState, useEffect } from "react";
-import { Link } from 'react-router-dom';
 import CompanyCard from "./CompanyCard";
 import "./CompanyList.css";
-import JoblyApi from "./api.js"
+import JoblyApi from "./api.js";
+import SearchBar from "./SearchBar";
 
 /**
- * State: companyList
- *
+ * State: companyList, isLoading, name(search filter)
+ * 
+ * Props: No props
  * 
  */
 
 function CompanyList() {
   const [companyList, setCompanyList] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
+  const [name, setName] = useState("");
+
+
+  function filterList(companyName) {
+    setName(companyName);
+  }
+
+  // function filterList(evt) {
+  //   evt.preventDefault();
+  //   console.log("FILTER OBJJJJJ",evt.target.form[0].value)
+  //   const companyName = evt.target.form[0].value;
+  //   setName(companyName);
+  // }
 
 
   useEffect(function fetchCompaniesWhenMounted() {
     async function fetchCompanies() {
-      const companies = await JoblyApi.getCompanyList();
 
-      console.log(companies);
+      const filterObj = name==="" ? {} : {name};
+
+      const companies = await JoblyApi.getCompanyList(filterObj);
+
       setCompanyList(companies);
       setIsLoading(false);
     }
     fetchCompanies();
-  }, []);
+  }, [name]);
 
 
   if (isLoading) return <i>Loading...</i>;
@@ -46,6 +62,9 @@ function CompanyList() {
             COMPANY LIST
           </h1>
         </div>
+      </div>
+      <div className="row">
+        <SearchBar filterList={filterList} />
       </div>
       <div className="row">
         {renderCompanyList()}
