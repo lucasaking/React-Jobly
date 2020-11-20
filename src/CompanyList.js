@@ -17,6 +17,7 @@ function CompanyList() {
   const [name, setName] = useState("");
 
 
+
   function filterList(companyName) {
     setName(companyName);
   }

@@ -1,19 +1,17 @@
-import React, { useContext } from "react"
-import UserContext from "./UserContext";
-import {
-  useHistory,
-} from 'react-router-dom';
+// import React, { useContext } from "react"
+// import UserContext from "./UserContext";
 
-function Logout() {
-  const {logout} = useContext(UserContext);
-  const history = useHistory();
 
-  logout();
-  history.push("/");
-  return (
-    <div>
-    </div>
-  );
-}
+// function Logout() {
+//   const {logout} = useContext(UserContext);
+  
 
-export default Logout;
+//   logout();
+  
+//   return (
+//     <div>
+//     </div>
+//   );
+// }
+
+// export default Logout;

@@ -1,16 +1,19 @@
 import React, { useState, useContext } from "react";
 import "./CompanyList.css";
-import JoblyApi from "./api.js"
+import JoblyApi from "./api.js";
 import {
   Switch,
   Route,
-  Redirect
+  Redirect,
+  useHistory
 } from 'react-router-dom';
 import UserContext from "./UserContext";
 
 
 function SignupForm(){
   const { signup } = useContext(UserContext);
+  const history = useHistory();
+
   const [formData, setFormData] = useState({
     firstName: "pair",
     lastName: "coding",
@@ -29,9 +32,9 @@ function SignupForm(){
 
   async function handleSubmit(evt) {
     evt.preventDefault();
-    const token = await JoblyApi.createUser(formData);
-    signup({username: formData.username, token});
+    signup(formData);
     setFormData({ firstName: "", lastName: "", email: "", username: "", password: "" });
+    history.push("/");
   }
 
   return (

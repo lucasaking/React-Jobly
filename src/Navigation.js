@@ -6,7 +6,6 @@ import UserContext from "./UserContext";
 function Navigation() {
   const {currentUser, logout} = useContext(UserContext);
 
-  console.log("NAVIGATIONNNNNN", currentUser);
   return (
     <div>{
       currentUser.token && (
@@ -15,7 +14,7 @@ function Navigation() {
           <NavLink exact to="/companies">Companies</NavLink>
           <NavLink exact to="/jobs">Jobs</NavLink>
           <NavLink exact to="/profile">Profile</NavLink>
-          <NavLink exact to="/logout">Logout<span> {currentUser.username}</span></NavLink>
+          <NavLink exact to="/" onClick={logout}>Logout<span> {currentUser.username}</span></NavLink>
         </nav>
       )}
 
