@@ -12,28 +12,22 @@ import UserContext from "./UserContext"
 function JobCard({ job }) {
 
   const { currentUser, hasApplied, appliedJob } = useContext(UserContext);
-  const [applied, setApplied] = useState(false);
+  const [applied, setApplied] = useState();
 
   useEffect(function updateJobApp() {
+    console.log("HASS APPLIED", job.id)
+    console.log("FUNCTION", hasApplied(job.id))
     setApplied(hasApplied(job.id));
   }, [job.id, hasApplied]);
 
   async function handleApply(evt) {
     evt.preventDefault();
     if (hasApplied(job.id)) return;
-    appliedJob(job.id)
-    setApplied(true)
+    appliedJob(job.id);
+    setApplied(true);
     console.log("APPLIED", job.id);
   }
 
-  // if(currentUser.applications && !applied){
-  //   console.log("INCLUDESSSSS JOB ID ", currentUser.applications);
-  //   const found = currentUser.applications.find(element => element === job.id);
-  //   if(found){
-  //     console.log("INCLUDESSSSS JOB ID ", job.id)
-  //     setApplied(true);
-  //   }
-  // }
 
   return (
     <div className="commonCard">

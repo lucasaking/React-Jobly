@@ -35,7 +35,7 @@ function App() {
   useEffect(function updateCurrentUser() {
     async function getUserDetails() {
       const result = await JoblyApi.getUserDetails(currentUser.username);
-      if (!currentUser.firstName) {
+      if (currentUser.firstName) {
         setCurrentUser(data => ({...data, ...result}));
         setApplicationIds(new Set(currentUser.applications));
       }
@@ -59,6 +59,7 @@ function App() {
   }
 
   function hasApplied(id) {
+    console.log(applicationIds)
     return applicationIds.has(id);
   }
 
@@ -66,6 +67,7 @@ function App() {
     if (hasApplied(id)) return;
     await JoblyApi.appliedJob(currentUser.username, id);
     setApplicationIds(new Set([...applicationIds, id]));
+    console.log("APPLIED JOB LIST ",applicationIds);
   }
 
   function logout() {
